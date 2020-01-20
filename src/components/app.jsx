@@ -6,6 +6,15 @@ export default class App extends Component {
         tags: ['tag1', 'tag2', 'tag3']
     };
 
+    //constructor() {
+        //super();
+        //this.handleIncrement = this.handleIncrement.bind(this);
+    //};
+
+    handleIncrement = () => {
+        this.setState({ count: this.state.count + 1 })
+    };
+
     renderTags() {
         if (this.state.tags.length === 0) return <p>There is no tags</p>;
     }
@@ -20,7 +29,9 @@ export default class App extends Component {
             <span className={this.getBadgeClasses()} style={{fontSize:20}}>
                 {this.formatCount()}
             </span>
-            <button className="btn btn-secondary btn-sm">
+            <button onClick={this.handleIncrement} 
+            className="btn btn-secondary btn-sm"
+            >
                 Increment
             </button>
             <ul>
